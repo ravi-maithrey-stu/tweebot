@@ -5,12 +5,6 @@ auth.set_access_token("1276845470686445568-eEiTJbbWZhAJBq5y4fCQoBfnTDXqDE", "K5U
 
 api = tweepy.API(auth)
 
-public_tweets = api.home_timeline()
-for tweet in public_tweets:
-    print(tweet.text)
-
-user = api.get_user('bijoy78442457')
-print(user.screen_name)
-print(user.followers_count)
-for friend in user.friends():
-    print(friend.screen_name)
+new_txt = open("new.txt", "r")
+tweet = new_txt.readline()
+api.update_status(tweet)
